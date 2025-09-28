@@ -1,0 +1,195 @@
+// // ===== 1
+
+// void main() {
+//   var name = '디모이';
+//   var result = "내 이름은 $name!";
+//   // ~~~~~~~ 이렇게 문자열 안에 변수 이름으로 값을 삽입하는 것을      "보간 문자열"
+
+//   print(name);
+//   print(result);
+
+//   var x = 2;
+//   var y = 5;
+//   //var res =x.toString() + " X " + y.toString() + " = " + (x*y).toString();
+
+//   var res = "$x X $y = ${x * y}";
+//   print(res);
+// }
+
+// // ====== 2. 리스트
+// void main() {
+//   List<int> nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//   var nums2 = <int>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//   var nums3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//   var nums4 = List<int>.generate(10, (index) => index + 1);
+
+//   print(nums);
+//   print(nums2);
+//   print(nums3);
+//   print(nums4);
+//   //자료형 확인
+//   print(nums.runtimeType);
+//   print(nums.runtimeType);
+//   print(nums.runtimeType);
+//   print(nums.runtimeType);
+
+//   nums.removeWhere((num) => num % 2 == 0);
+//   //num은 매개변수
+//   print(nums);
+//   nums.clear();
+//   print(nums);
+// }
+
+// // ====== 3 set
+// //set은 중복 제거,그리고 List와 달리 순서 유지가 안됌
+// void main() {
+//   var snackNames = {'새우깡', '새우깡', '포카칩', '포스틱', '감자깡', '포카칩'};
+//   print(snackNames);
+//   }
+
+// // ====== 4 map
+// void main() {
+//   Map<String, String> userInfo = {
+//     'name': '개발하는 남자',
+//     'age': '37',
+//     'phone': '010-xxxx-xxxx',
+//   };
+//   print(userInfo);
+
+//   Map<String, Map<String, String>> sUser = {};
+
+//   sUser['2022136043'] = userInfo;
+//   print(sUser['2022136043']);
+
+//   print(userInfo['name']);
+//   print(userInfo['age']);
+//   print(userInfo['phone']);
+
+//   userInfo['phone'] = '010-5560-xxxx';
+//   print(userInfo);
+// }
+
+// // ====== 6 enum
+// enum ColorType { RED, YELLOW, BLUE }
+
+// void main() {
+//   //var selectCol = ColorType.YELLOW;
+//   //print(selectCol);
+
+//   var selectCol = ColorType.RED;
+//   print(selectCol);
+//   if (selectCol == ColorType.RED) {
+//     print("빨간색 선택!");
+//   }
+// }
+
+// // ====== 6 비교연산자
+
+// void main() {
+//   //비교 연산자
+//   var a = 10;
+//   var b = 20;
+
+//   print(a>b); // false -> bool
+
+// }
+
+// // ====== 7 논리연산자
+
+// void main() {
+//   //논리 연산자 or -> || , and -> && , not -> !
+
+//   var a = true;
+//   var b = false;
+
+//   print(a || b);
+//   print(a && b);
+//   print(!a);
+// }
+
+// // ====== 8 조건문
+
+// void main() {
+//   var age = 37;
+//   if(age>20){
+//     print('성인');
+//   }else {
+//     print('미성년자');
+//   }
+// }
+
+// // ====== 9 반복문
+// void main() {
+//   var nums = [1, 2, 3, 4, 5];
+//   // for문
+//   //첫번째 : 인덱스가 노출됨 x
+//   for (var i = 0; i < nums.length; i++) {
+//     print(nums[i]);
+//   }
+
+//   //인덱스가 감춰짐
+//   for (var num in nums) {
+//     print(num);
+//   }
+
+//   //while문
+//   var a = true;
+//   while(a){
+//     print("안녕");
+//     a = false;
+//   }
+//   print("바이");
+
+// }
+
+// // ====== 10 함수
+
+// void main() {
+//   for (var i = 0; i < 5; i++) {
+//     printHelloWorld('민권');
+//   }
+//   print(sum(10, 30));
+// }
+
+// void printHelloWorld(String name) {
+//   print('Hello, $name!');
+// }
+
+// int sum(int x, int y) {
+//   var result = x + y;
+//   return result;
+// }
+
+// ====== 11 문제 풀이
+
+void main() {
+  printGuGuDan(2, 9);
+  printdan(3);
+}
+
+void printGuGuDan(int n, int m) {
+  for (var dan = n; dan <= m; dan++) {
+    for (var num = 1; num <= 9; num++) {
+      print(
+        dan.toString() +
+            " X " +
+            num.toString() +
+            " = " +
+            (dan * num).toString()
+      );
+    }
+    print('');
+  }
+}
+
+void printdan(int n){
+     for (var num = 1; num <= 9; num++) {
+      print(
+        n.toString() +
+            " X " +
+            num.toString() +
+            " = " +
+            (n * num).toString()
+        );
+}
+}
