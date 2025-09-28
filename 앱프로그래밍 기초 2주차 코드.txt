@@ -1,0 +1,180 @@
+
+// =====1장
+// void main() {
+//   //   print(5+4);
+//   // }
+
+//   String? bookName;
+//   //   bookName = "핸즈온 플러터";
+
+//   // 1번째
+//   //   print(bookName?.length);
+
+//   // 2번쨰
+//   //   if (bookName != null){
+//   //     print(bookName.length);
+//   //   }
+
+//   // 3번째
+// //   print(bookName!.length);
+
+// }
+
+// // ======2장
+// void main() {
+//   //   final String youtuber = "개발하는 남자";
+//   //   const String name = "개남";
+
+//   //   youtuber = "아아";
+//   //   name = "안녕";
+
+//   int a = 31;
+//   double b = 31.1;
+//   print(a);
+//   print(a.runtimeType);
+//   print(b);
+//   print(b.runtimeType);
+//   print('\n');
+  
+//   //정수,실수 상위 클래스
+//   num c = a;
+//   print(c);
+//   c = b;
+//   print(c);
+//   print('\n');
+  
+//   //num,String 등등의 상위 클래스 Object
+//   Object d = a;
+//   print(d);
+//   print('\n');
+  
+  
+// }
+
+
+// // ======= 3장
+// void main() {
+//   int maxInt = 9223372036854775807;
+//   print (maxInt);
+//   //
+//   //
+  
+//   //signed char   ->1바이트 -> 2^8 -> -128 ~ 127
+//   //unsigned char   ->1바이트 -> 2^8 -> 0 ~ 128
+//   //signed short   ->2바이트 -> 2^16 -> -16384 ~ 16383
+//   //unsigned short   ->2바이트 -> 2^16 -> 0 ~ 32767
+//   //signed int   ->4(8)바이트 
+//   //unsigned int   
+//   //signed long   -> 8 바이트 
+//   //unsigned long    
+  
+// }
+
+
+
+// ======= 4장
+// void main() {
+// //   var name = "강민권";
+// //   var age = 23;
+  
+// //   var format = '$name의 나이는 $age세 입니다.';
+// //   // format = name + '의 나이는 ' + age.toString() + '세 입니다'
+// //   print(format);
+
+  
+//   var tValue = true;
+//   var fValue = false;
+  
+//   print(tValue);
+//   print(fValue);
+  
+//   ///
+  
+  
+//  const maxLength = 6;
+//  var author = '개발하는 민권';
+  
+//   var isLengthOver = author.length > maxLength;
+//   print(isLengthOver);
+  
+//   if (isLengthOver){
+//     print("이름이 너무 깁니다");
+//   }else{
+//     print(author);
+//   }
+//   }
+
+
+// ====== 5장
+
+void main() {
+  
+  //var nums = [1,2,3,4,5,6,7,8,9,10];
+  //nums.add(11);
+  //print(nums);
+  //print(nums[5]);
+  //print(nums.first);
+  //print(nums.last);
+  
+  
+  
+//   var vl1 = <int>[1,2,3];
+//   print(vl1);
+//   var vl2 =[1,2,3];
+//   print(vl2);
+//   var vl3 = List.empty(growable:true);
+//   print(vl3);
+//   vl3.add(10);
+//   print(vl3);
+
+// // var v3 = List.empty(growable:true);
+//   var v3 = [];
+//   v3.add(10);
+//   v3.add('문자 추가');
+//   v3.add(true);
+//   print(v3);
+//   print(v3.runtimeType);
+
+//   var valueList = List.generate(100, (index) => 'sample$index');
+//   print(valueList);
+  
+// //   var isString = '문자';
+//   var isString = 312;
+//   var sampleList = [1,3,5, if(isString is! String) isString,9 ,12];
+//   print(sampleList);
+  
+  
+//   var listOne = [1,2,3];
+//   print(listOne.runtimeType);
+//   var listTwo = ['one','two','three'];
+//   var mergeList = [...listOne,...listTwo];
+//   print(mergeList);
+//   print(mergeList.runtimeType);
+  
+  
+//   var nums = [1,2,3,4,5,6,7,8,9,10];
+//   print(nums);
+//   var nums2 = List.generate(100, (index) => index + 1);
+//   print(nums2);
+  
+// nums.removeWhere((num) => num%2 == 0);
+//   print(nums);
+  
+//   nums.clear();
+//   print(nums);
+  
+  
+//   var numbers = List.generate(20,(index) => index);
+//   print(numbers);
+//   var odds = numbers.where((index) => index %2 == 1);
+//   print(odds);
+
+var mixList = [1,'2',3,'4',5,6,7,'8','9'];
+  print (mixList.runtimeType);
+  print(mixList);
+  
+  
+  var number = mixList.map<int>((value) => int.parse(value.toString())).toList();
+  print(number);
+  print(number.runtimeType);
+}
