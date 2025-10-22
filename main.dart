@@ -7,14 +7,15 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
       ),
-      home: const MyHomePage(title: '플러터 데모 페이지'),
+      home: const MyHomePage(title: '플러터 데모 홈 페이지'),
     );
   }
 }
@@ -29,66 +30,164 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //화면 구성 단위
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-
         title: Text(widget.title),
       ),
-      body: Center(child: createBody5()),
+      body: createBody(),
     );
   }
 }
 
-Widget creatBody1() {
-  return Container(
-    padding: const EdgeInsets.only(left: 20, right: 20),
-    width: 200,
-    height: 100,
-    color: Colors.red,
-    alignment: Alignment.center,
-    child: Text('Container'),
-  );
+Widget createBody() {
+  //return Center(child: createS1());
+  // return Column(
+  //   children: [
+  //     createS2(MainAxisAlignment.start),
+  //     createS2(MainAxisAlignment.center),
+  //     createS2(MainAxisAlignment.end),
+  //     createS2(MainAxisAlignment.spaceEvenly),
+  //     createS2(MainAxisAlignment.spaceAround),
+  //     createS2(MainAxisAlignment.spaceBetween),
+  //     //
+  //     createS3(CrossAxisAlignment.stretch),
+  //     createS3(CrossAxisAlignment.start),
+  //     createS3(CrossAxisAlignment.end),
+  //     createS3(CrossAxisAlignment.center),
+  //   ],
+  // );
+  //// 2qjsWo
+  // return Row(
+  //   children: [
+  //     createS4(MainAxisAlignment.start),
+  //     createS4(MainAxisAlignment.center),
+  //     createS4(MainAxisAlignment.end),
+  //     createS4(MainAxisAlignment.spaceEvenly),
+  //     createS4(MainAxisAlignment.spaceAround),
+  //     createS4(MainAxisAlignment.spaceBetween),
+  //     //
+  //     createS5(CrossAxisAlignment.stretch),
+  //     createS5(CrossAxisAlignment.start),
+  //     createS5(CrossAxisAlignment.end),
+  //     createS5(CrossAxisAlignment.center),
+  //   ],
+  // );
+
+  // return createS6();
+  return createS8();
 }
 
-Widget creatBody2() {
-  return Container(
-    padding: const EdgeInsets.only(left: 20, right: 20),
-    decoration: BoxDecoration(
-      gradient: LinearGradient(
-        colors: [
-          Color.fromARGB(255, 255, 59, 98).withOpacity(0.7),
-          Color.fromARGB(255, 255, 59, 98),
+Widget createS8() {
+  return Center(
+    child: SizedBox(
+      width: 350,
+      height: 350,
+      child: Column(
+        children: [
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(child: Container(color: Colors.red)),
+                Expanded(child: Container(color: Colors.yellow)),
+              ],
+            ),
+          ),
+          Expanded(child: Container(color: Colors.blue)),
         ],
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
       ),
-      borderRadius: BorderRadius.circular(10),
-      boxShadow: [
-        BoxShadow(
-          color: Color.fromARGB(255, 255, 59, 98).withOpacity(0.5),
-          spreadRadius: 5,
-          blurRadius: 7,
-          offset: Offset(0, 3),
-        ),
-      ],
-    ),
-    width: 200,
-    height: 150,
-    child: Center(
-      child: Text('Container', style: TextStyle(color: Colors.white)),
     ),
   );
 }
 
-Widget creatBody3() {
+Widget createS7() {
+  return Column(
+    children: [
+      Row(children: [createBox(1), createBox(1), createBox(1)]),
+      Row(children: [createBox(1), createBox(2), createBox(1)]),
+      Row(children: [createBox(1), createBox(2), createBox(3)]),
+    ],
+  );
+}
+
+Widget createBox(int flex) {
+  return Expanded(
+    flex: flex,
+    child: Container(
+      height: 40,
+      color: Colors.red,
+      margin: const EdgeInsets.all(5),
+    ),
+  );
+}
+
+Widget createS6() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      ...List.generate(
+        4,
+        (index) => Container(
+          width: 40,
+          height: 40,
+          color: Colors.red,
+          margin: const EdgeInsets.all(5),
+        ),
+      ),
+      Expanded(
+        child: Container(
+          height: 40,
+          color: Colors.red,
+          margin: const EdgeInsets.all(5),
+        ),
+      ),
+    ],
+  );
+}
+
+Widget createS1() {
   return Container(
+    padding: const EdgeInsets.only(left: 20, right: 20),
+    width: 200,
+    height: 50,
     color: Colors.blue,
+    child: Center(child: Text('container')),
+  );
+}
+
+Widget createS2(MainAxisAlignment mainAxisAlignment) {
+  return Row(
+    mainAxisAlignment: mainAxisAlignment,
+    children: List.generate(
+      5,
+      (index) => Container(
+        width: 40,
+        height: 40,
+        color: Colors.red,
+        margin: const EdgeInsets.all(5),
+      ),
+    ),
+  );
+}
+
+Widget createS3(CrossAxisAlignment crossAxisAlignment) {
+  return Container(
     height: 100,
+    color: Colors.blue,
+    margin: const EdgeInsets.all(5),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: crossAxisAlignment,
       children: List.generate(
         5,
         (index) => Container(
@@ -102,19 +201,32 @@ Widget creatBody3() {
   );
 }
 
-Widget createBody4() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    children: [
-      Expanded(
-        child: Container(
-          height: 40,
-          color: Colors.red,
-          margin: const EdgeInsets.all(5),
-        ),
+//2,3을 Row로
+
+Widget createS4(MainAxisAlignment mainAxisAlignment) {
+  return Column(
+    mainAxisAlignment: mainAxisAlignment,
+    children: List.generate(
+      5,
+      (index) => Container(
+        width: 40,
+        height: 40,
+        color: Colors.red,
+        margin: const EdgeInsets.all(5),
       ),
-      ...List.generate(
-        4,
+    ),
+  );
+}
+
+Widget createS5(CrossAxisAlignment crossAxisAlignment) {
+  return Container(
+    width: 100,
+    color: Colors.blue,
+    margin: const EdgeInsets.all(5),
+    child: Column(
+      crossAxisAlignment: crossAxisAlignment,
+      children: List.generate(
+        5,
         (index) => Container(
           width: 40,
           height: 40,
@@ -122,38 +234,6 @@ Widget createBody4() {
           margin: const EdgeInsets.all(5),
         ),
       ),
-    ],
-  );
-}
-
-Widget createBody5() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    children: [
-      Expanded(
-        flex: 1,
-        child: Container(
-          height: 40,
-          color: Colors.red,
-          margin: const EdgeInsets.all(5),
-        ),
-      ),
-      Expanded(
-        flex: 2,
-        child: Container(
-          height: 40,
-          color: Colors.red,
-          margin: const EdgeInsets.all(5),
-        ),
-      ),
-      Expanded(
-        flex: 1,
-        child: Container(
-          height: 40,
-          color: Colors.red,
-          margin: const EdgeInsets.all(5),
-        ),
-      ),
-    ],
+    ),
   );
 }
